@@ -20,9 +20,10 @@ button, a { -webkit-tap-highlight-color: transparent; }
 button { font: inherit; }
 .skip-link { position: fixed; z-index: 100; left: 1rem; top: 1rem; padding: .7rem 1rem; transform: translateY(-180%); background: var(--gold); color: var(--olive-950); }
 .skip-link:focus { transform: translateY(0); }
-.site-header { position: fixed; z-index: 50; top: 0; left: 0; right: 0; display: flex; align-items: center; justify-content: space-between; min-height: 82px; padding: .75rem clamp(1.25rem, 5vw, 5rem); color: var(--cream); transition: background .25s ease, box-shadow .25s ease; }
+.site-header { position: fixed; z-index: 50; top: 0; left: 0; right: 0; display: flex; align-items: center; justify-content: space-between; min-height: clamp(70px, 7vw, 88px); padding: clamp(.55rem, 1vw, .8rem) clamp(1.25rem, 5vw, 5rem); color: var(--cream); transition: background .25s ease, box-shadow .25s ease; }
 .site-header.scrolled { background: rgba(39, 53, 31, .96); box-shadow: 0 8px 30px rgba(20, 28, 16, .16); backdrop-filter: blur(12px); }
-.brand img { display: block; width: 138px; height: auto; }
+.brand { display: flex; align-items: center; line-height: 0; }
+.brand img { display: block; width: clamp(118px, 13vw, 182px); height: auto; object-fit: contain; }
 .main-nav { display: flex; align-items: center; gap: clamp(.9rem, 2.2vw, 2rem); }
 .main-nav a { font-size: .86rem; font-weight: 600; text-decoration: none; }
 .main-nav a:not(.nav-cta):hover { color: var(--gold-soft); }
@@ -114,7 +115,7 @@ button { font: inherit; }
 .final-actions { display: flex; flex-direction: column; align-items: center; gap: .9rem; }
 .text-link { color: var(--cream); font-size: .84rem; font-weight: 700; text-underline-offset: .25rem; }
 footer { display: grid; grid-template-columns: 1fr auto 1fr; align-items: end; gap: 2rem; padding: 3rem clamp(1.25rem, 7vw, 7rem); background: var(--olive-950); color: rgba(247, 246, 242, .65); }
-.footer-brand img { display: block; width: 138px; height: auto; }
+.footer-brand img { display: block; width: clamp(132px, 14vw, 182px); height: auto; object-fit: contain; }
 .footer-brand p { margin: .5rem 0 0; font-size: .7rem; }
 .footer-links { display: flex; flex-wrap: wrap; gap: 1.2rem; }
 .footer-links a { font-size: .76rem; text-underline-offset: .25rem; }

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ZitFlow — bientôt sur www.x-dev.pro</title>
+    <meta
+      name="description"
+      content="ZitFlow — système de gestion pour moulins d’huile d’olive. Site vitrine en construction."
+    />
+    <meta name="robots" content="noindex,follow" />
+    <link rel="canonical" href="https://www.x-dev.pro/" />
+    <style>
+      :root {
+        --olive: #3d4f2f;
+        --cream: #f7f6f2;
+        --gold: #d4a84b;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        font-family: Quicksand, "Segoe UI", sans-serif;
+        color: var(--olive);
+        background:
+          radial-gradient(ellipse 80% 60% at 20% 10%, rgba(212, 168, 75, 0.18), transparent 55%),
+          radial-gradient(ellipse 70% 50% at 90% 80%, rgba(61, 79, 47, 0.12), transparent 50%),
+          var(--cream);
+        text-align: center;
+        padding: 2rem;
+      }
+      h1 {
+        font-size: clamp(2.5rem, 8vw, 4rem);
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        margin: 0 0 0.5rem;
+      }
+      p {
+        margin: 0.35rem 0;
+        max-width: 28rem;
+        line-height: 1.5;
+        opacity: 0.9;
+      }
+      a {
+        color: var(--olive);
+        font-weight: 600;
+        text-underline-offset: 0.2em;
+      }
+      a:hover {
+        color: var(--gold);
+      }
+      .cta {
+        display: inline-block;
+        margin-top: 1.5rem;
+        padding: 0.75rem 1.25rem;
+        border-radius: 999px;
+        background: var(--olive);
+        color: var(--cream);
+        text-decoration: none;
+      }
+      .cta:hover {
+        color: var(--cream);
+        filter: brightness(1.08);
+      }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main>
+      <h1>ZitFlow</h1>
+      <p>Système de gestion pour moulins d’huile d’olive.</p>
+      <p>Site vitrine en construction — voir <code>PLAN.md</code> sur la branche <code>github-pages</code>.</p>
+      <a class="cta" href="https://zitflow.x-dev.pro">Ouvrir l’application</a>
+    </main>
+  </body>
+</html>

@@ -7,7 +7,7 @@ The product app lives at **[zitflow.x-dev.pro](https://zitflow.x-dev.pro)** (Ren
 ## Stack
 
 - Angular 21 standalone application
-- Static production build
+- Static prerendered production build for crawlable page content
 - GitHub Actions deployment to GitHub Pages
 - Custom domain: `www.x-dev.pro`
 
@@ -26,6 +26,6 @@ npm run build
 
 ## Deployment
 
-Pushes to **`github-pages`** trigger [the Pages workflow](./.github/workflows/deploy-pages.yml). The workflow builds Angular, uploads `dist/x-dev-pro/browser`, and deploys it to GitHub Pages.
+Pushes to **`github-pages`** trigger [the Pages workflow](./.github/workflows/deploy-pages.yml). The workflow prerenders Angular, uploads `dist/x-dev-pro/browser`, and deploys it to GitHub Pages.
 
 Full product and domain plan: [`PLAN.md`](./PLAN.md).

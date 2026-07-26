@@ -1,0 +1,160 @@
+<a class="skip-link" href="#main">Aller au contenu</a>
+<header class="site-header" [class.scrolled]="scrolled()">
+  <a class="brand" href="#top" aria-label="ZitFlow, accueil" (click)="closeMenu()">
+    <img src="assets/zitflow-logo-cream.png" alt="ZitFlow" width="173" height="58">
+  </a>
+  <button class="menu-toggle" type="button" [attr.aria-label]="menuOpen() ? 'Fermer le menu' : 'Ouvrir le menu'" [attr.aria-expanded]="menuOpen()" aria-controls="main-nav" (click)="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
+  <nav class="main-nav" id="main-nav" aria-label="Navigation principale" [class.open]="menuOpen()">
+    <a href="#fonctionnement" (click)="closeMenu()">Fonctionnement</a>
+    <a href="#modules" (click)="closeMenu()">Modules</a>
+    <a href="#capacites" (click)="closeMenu()">Capacités</a>
+    <a href="#equipes" (click)="closeMenu()">Pour qui</a>
+    <a class="nav-cta" href="https://zitflow.x-dev.pro/">Ouvrir l’application</a>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="hero" id="top">
+    <div class="hero-wash" aria-hidden="true"></div>
+    <div class="hero-content">
+      <p class="eyebrow">Olive Oil Smart Management</p>
+      <h1>Tout le moulin.<br><span>Un seul flux.</span></h1>
+      <p class="hero-lead">ZitFlow relie chaque étape de votre activité, de l’arrivée des olives à la vente du produit fini.</p>
+      <p class="hero-support">Réception, production, cuves, conditionnement, inventaire, finance, ressources humaines et traçabilité dans une plateforme métier.</p>
+      <div class="hero-actions">
+        <a class="button button-gold" href="https://zitflow.x-dev.pro/">Ouvrir l’application <span aria-hidden="true">↗</span></a>
+        <a class="button button-ghost" href="mailto:contact@x-dev.pro?subject=Demande%20de%20démonstration%20ZitFlow">Demander une démonstration</a>
+      </div>
+    </div>
+    <div class="hero-visual" aria-label="Aperçu du pilotage ZitFlow">
+      <div class="dashboard">
+        <div class="dashboard-top"><span>Vue du moulin</span><span class="live-dot">Campagne active</span></div>
+        <div class="metrics">
+          <div><small>Olives reçues</small><strong>48,2 t</strong></div>
+          <div><small>Huile produite</small><strong>9 140 L</strong></div>
+          <div><small>Rendement</small><strong>18,9 %</strong></div>
+        </div>
+        <div class="chart" aria-label="Illustration de l’évolution de la production">
+          <div class="chart-label">Production de la campagne</div>
+          <div class="bars" aria-hidden="true">
+            <i style="--h:34%"></i><i style="--h:48%"></i><i style="--h:43%"></i><i style="--h:67%"></i><i style="--h:58%"></i><i style="--h:82%"></i><i style="--h:76%"></i><i style="--h:94%"></i>
+          </div>
+        </div>
+      </div>
+      <div class="olive-orbit orbit-one" aria-hidden="true"></div>
+      <div class="olive-orbit orbit-two" aria-hidden="true"></div>
+    </div>
+    <a class="scroll-cue" href="#fonctionnement"><span>Découvrir</span><i aria-hidden="true">↓</i></a>
+  </section>
+
+  <section class="statement section">
+    <p class="eyebrow olive">Le système d’exploitation du moulin</p>
+    <h2>Une donnée saisie sur le terrain alimente toute l’entreprise.</h2>
+    <p>Chaque lot, mouvement, transformation, paiement et document reste relié à son origine. Les équipes partagent la même information, avec les droits adaptés à leur rôle.</p>
+  </section>
+
+  <section class="workflow section" id="fonctionnement">
+    <div class="section-heading">
+      <div><p class="eyebrow olive">Comment fonctionne OOSM</p><h2>Un flux métier continu, sans ressaisie.</h2></div>
+      <p>Les opérations physiques, les stocks et la finance avancent ensemble.</p>
+    </div>
+    <ol class="flow">
+      <li><span>01</span><strong>Réception</strong><small>Fournisseur, pesée et lot</small></li>
+      <li><span>02</span><strong>Contrôle</strong><small>Variété, qualité et documents</small></li>
+      <li><span>03</span><strong>Production</strong><small>Transformation et rendement</small></li>
+      <li><span>04</span><strong>Stockage</strong><small>Cuves, filtration et mouvements</small></li>
+      <li><span>05</span><strong>Conditionnement</strong><small>OF, emballage et étiquettes</small></li>
+      <li><span>06</span><strong>Expédition</strong><small>Stock fini et livraison</small></li>
+      <li><span>07</span><strong>Finance</strong><small>Vente, paiement et facture</small></li>
+    </ol>
+  </section>
+
+  <section class="modules section" id="modules">
+    <div class="section-heading">
+      <div><p class="eyebrow olive">Couverture fonctionnelle</p><h2>Une plateforme. Tous les métiers du moulin.</h2></div>
+      <p>Sélectionnez un module pour voir son rôle dans le flux.</p>
+    </div>
+    <div class="module-layout">
+      <div class="module-tabs" role="tablist" aria-label="Modules ZitFlow">
+        @for (module of modules; track module.key; let index = $index) {
+          <button
+            role="tab"
+            [id]="'tab-' + module.key"
+            [attr.aria-selected]="selectedKey() === module.key"
+            aria-controls="module-panel"
+            (click)="selectModule(module.key)"
+            (keydown)="moveTab($event, index)">
+            <span>{{ module.number }}</span>{{ module.label }}
+          </button>
+        }
+      </div>
+      <article class="module-panel" id="module-panel" role="tabpanel" [attr.aria-labelledby]="'tab-' + selectedModule.key" tabindex="0">
+        <p class="module-number">Module {{ selectedModule.number }}</p>
+        <h3>{{ selectedModule.title }}</h3>
+        <p class="module-intro">{{ selectedModule.summary }}</p>
+        <ul>
+          @for (feature of selectedModule.features; track feature) {
+            <li>{{ feature }}</li>
+          }
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="capabilities section" id="capacites">
+    <div class="section-heading light">
+      <div><p class="eyebrow gold">Au-delà des opérations</p><h2>Contrôle, conformité et continuité.</h2></div>
+      <p>ZitFlow conserve le contexte nécessaire pour décider, prouver et agir.</p>
+    </div>
+    <div class="capability-grid">
+      <article><span>Traçabilité</span><h3>Du fournisseur au produit fini.</h3><p>Généalogie des lots, QR, mouvements d’huile et historique des transformations.</p></article>
+      <article><span>Qualité</span><h3>Des contrôles intégrés au flux.</h3><p>Règles, résultats, plans qualité, audits et certifications.</p></article>
+      <article><span>Maintenance</span><h3>Un outil de production disponible.</h3><p>Équipements, machines, missions de service et ordres de maintenance.</p></article>
+      <article><span>Documents</span><h3>Les bonnes pièces, au bon moment.</h3><p>Réceptions, transactions, ventes d’huile, factures et expéditions.</p></article>
+      <article><span>Analytique</span><h3>Une lecture claire de l’activité.</h3><p>Rendements, production, stocks, finance, RH et tableaux de bord.</p></article>
+      <article><span>Collaboration</span><h3>Les événements deviennent des actions.</h3><p>Notifications, recherche globale, support et suivi des opérations.</p></article>
+    </div>
+  </section>
+
+  <section class="teams section" id="equipes">
+    <div class="teams-copy">
+      <p class="eyebrow olive">Une vue adaptée à chaque équipe</p>
+      <h2>Les bonnes actions, pour les bonnes personnes.</h2>
+      <p>Les rôles et permissions donnent accès aux fonctions utiles. La direction conserve une vision consolidée, sans compromettre l’isolation des sociétés.</p>
+    </div>
+    <div class="role-list">
+      <article><strong>Réception & production</strong><p>Lots, pesées, cuves, filtration, qualité, machines et rendements.</p></article>
+      <article><strong>Magasin & logistique</strong><p>Articles, nomenclatures, réservations, stocks et expéditions.</p></article>
+      <article><strong>Finance</strong><p>Transactions, factures, dépenses, banques et crédits d’huile.</p></article>
+      <article><strong>Ressources humaines</strong><p>Employés, contrats, pointage, congés, paie, prêts et conformité.</p></article>
+      <article><strong>Direction</strong><p>Indicateurs, rapports, supervision multi-sociétés et paramètres.</p></article>
+    </div>
+  </section>
+
+  <section class="platform-strip" aria-label="Caractéristiques de la plateforme">
+    <div><strong>Multi-sociétés</strong><span>Données isolées par organisation</span></div>
+    <div><strong>FR · EN · AR</strong><span>Une interface pour chaque équipe</span></div>
+    <div><strong>PWA mobile</strong><span>Utilisable sur le terrain</span></div>
+    <div><strong>Sécurité</strong><span>Rôles et permissions fines</span></div>
+    <div><strong>Cloud</strong><span>Accessible partout, toujours à jour</span></div>
+  </section>
+
+  <section class="final-cta section">
+    <div>
+      <p class="eyebrow gold">Du suivi dispersé au pilotage intégré</p>
+      <h2>Digitalisez le fonctionnement complet de votre moulin.</h2>
+    </div>
+    <div class="final-actions">
+      <a class="button button-gold" href="mailto:contact@x-dev.pro?subject=Demande%20de%20démonstration%20ZitFlow">Demander une démonstration</a>
+      <a class="text-link" href="https://zitflow.x-dev.pro/">Accéder à ZitFlow <span aria-hidden="true">↗</span></a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-brand"><img src="assets/zitflow-logo-cream.png" alt="ZitFlow" width="173" height="58"><p>Olive Oil Smart Management</p></div>
+  <div class="footer-links"><a href="mailto:contact@x-dev.pro">Contact</a><a href="https://zitflow.x-dev.pro/">Application</a><a href="https://github.com/x-dev-grp/x-dev-pro">GitHub</a></div>
+  <p class="copyright">Un produit x-dev · {{ currentYear }}</p>
+</footer>

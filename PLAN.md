@@ -19,8 +19,8 @@ Optional later: `oosm.x-dev.pro` → 301 to `zitflow.x-dev.pro`.
 | Repo | `x-dev-grp/x-dev-pro` (this repo) |
 | Branch | **`github-pages`** — dedicated source/deploy branch |
 | Host | GitHub Pages + custom domain `www.x-dev.pro` |
-| Stack | Prefer **Astro** (static). Plain HTML OK for ultra-MVP. |
-| Deploy | GitHub Actions from `github-pages` → `actions/deploy-pages`, **or** publish this branch as Pages source once static files exist |
+| Stack | **Angular 21** standalone application with a static production build |
+| Deploy | GitHub Actions from `github-pages` → `actions/deploy-pages` |
 | CNAME | `www.x-dev.pro` (file in repo root) |
 
 ### DNS (OVH)
@@ -96,7 +96,7 @@ Ship facade `robots.txt` + `sitemap.xml` here. Do not duplicate app routes.
 
 ### MVP (build online on this branch)
 
-1. Scaffold Astro (or static HTML) on `github-pages`
+1. Scaffold Angular on `github-pages`
 2. Single-page FR facade + brand assets
 3. Enable Pages + DNS `www` → GitHub + HTTPS
 4. CTAs → zitflow + mailto

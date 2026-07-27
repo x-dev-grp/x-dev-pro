@@ -1,4 +1,5 @@
 import type { Dict } from './types';
+import { zitflowEn } from './zitflow.en';
 
 export const en: Dict = {
   'meta.title': 'x-dev — Development team & business products',
@@ -63,6 +64,7 @@ export const en: Dict = {
   'products.zitflow.chip.3': 'Finance',
   'products.zitflow.chip.4': 'HR & payroll',
   'products.zitflow.chip.5': 'Traceability',
+  'products.zitflow.learn': 'Discover ZitFlow',
   'products.zitflow.open': 'Open the app',
   'products.zitflow.demo': 'Request a demo',
   'products.soon.eyebrow': 'Product 02',
@@ -87,5 +89,8 @@ export const en: Dict = {
   'footer.tagline': 'Software studio · business products',
   'footer.contact': 'Contact',
   'footer.app': 'ZitFlow',
-  'footer.copy': '© {{year}} x-dev'
+  'footer.app.live': 'Live app',
+  'footer.copy': '© {{year}} x-dev',
+
+  ...zitflowEn
 };

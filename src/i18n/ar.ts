@@ -1,4 +1,5 @@
 import type { Dict } from './types';
+import { zitflowAr } from './zitflow.ar';
 
 /** Tunisian Arabic (professional, local tone) — Arabic script. */
 export const ar: Dict = {
@@ -64,6 +65,7 @@ export const ar: Dict = {
   'products.zitflow.chip.3': 'المالية',
   'products.zitflow.chip.4': 'الموارد البشرية',
   'products.zitflow.chip.5': 'التتبع',
+  'products.zitflow.learn': 'اكتشف ZitFlow',
   'products.zitflow.open': 'فتح التطبيق',
   'products.zitflow.demo': 'اطلب عرض تجريبي',
   'products.soon.eyebrow': 'منتج 02',
@@ -88,5 +90,8 @@ export const ar: Dict = {
   'footer.tagline': 'ستوديو برمجيات · منتجات مهنية',
   'footer.contact': 'اتصال',
   'footer.app': 'ZitFlow',
-  'footer.copy': '© {{year}} x-dev'
+  'footer.app.live': 'التطبيق',
+  'footer.copy': '© {{year}} x-dev',
+
+  ...zitflowAr
 };

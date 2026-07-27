@@ -1,0 +1,267 @@
+<a class="skip-link" href="#main">{{ t('skip') }}</a>
+
+<header class="site-header" [class.scrolled]="scrolled()">
+  <div class="brand brand-product">
+    <a class="brand-back" routerLink="/" (click)="closeMenu()">{{ t('zf.nav.studio') }}</a>
+    <a routerLink="/zitflow" [attr.aria-label]="t('zf.brand.home')" (click)="closeMenu()">
+      <img src="assets/zitflow-wordmark-transparent.png" alt="ZitFlow" width="875" height="265">
+    </a>
+  </div>
+
+  <nav class="main-nav" id="main-nav" [attr.aria-label]="t('zf.nav.label')" [class.open]="menuOpen()">
+    <a href="#fonctionnement" (click)="closeMenu()">{{ t('zf.nav.workflow') }}</a>
+    <a href="#modules" (click)="closeMenu()">{{ t('zf.nav.modules') }}</a>
+    <a href="#capacites" (click)="closeMenu()">{{ t('zf.nav.capabilities') }}</a>
+    <a href="#equipes" (click)="closeMenu()">{{ t('zf.nav.teams') }}</a>
+    <a class="nav-cta" href="https://zitflow.x-dev.pro/" (click)="closeMenu()">{{ t('zf.nav.open') }}</a>
+  </nav>
+
+  <div class="header-tools">
+    <div class="lang-switch" role="group" [attr.aria-label]="t('lang.label')">
+      @for (code of langs; track code) {
+        <button
+          type="button"
+          class="lang-btn"
+          [class.active]="lang() === code"
+          [attr.aria-pressed]="lang() === code"
+          [attr.lang]="langMeta[code].htmlLang"
+          (click)="setLang(code)">
+          {{ langMeta[code].short }}
+        </button>
+      }
+    </div>
+
+    <button
+      class="menu-toggle"
+      type="button"
+      [attr.aria-label]="menuOpen() ? t('menu.close') : t('menu.open')"
+      [attr.aria-expanded]="menuOpen()"
+      aria-controls="main-nav"
+      (click)="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="top">
+    <div class="hero-wash" aria-hidden="true"></div>
+    <div class="hero-content">
+      <p class="eyebrow">{{ t('zf.hero.eyebrow') }}</p>
+      <h1>{{ t('zf.hero.title.1') }}<br><span>{{ t('zf.hero.title.2') }}</span></h1>
+      <p class="hero-lead">{{ t('zf.hero.lead') }}</p>
+      <p class="hero-support">{{ t('zf.hero.support') }}</p>
+      <div class="hero-actions">
+        <a class="button button-gold" href="https://zitflow.x-dev.pro/">
+          {{ t('zf.hero.open') }} <span aria-hidden="true">↗</span>
+        </a>
+        <a class="button button-ghost" [href]="demoMailto()">{{ t('zf.hero.demo') }}</a>
+      </div>
+    </div>
+
+    <div class="hero-visual" [attr.aria-label]="t('zf.hero.visual')">
+      <div class="dashboard">
+        <div class="dashboard-top">
+          <span>{{ t('zf.dash.title') }}</span>
+          <span class="live-dot">{{ t('zf.dash.status') }}</span>
+        </div>
+        <div class="metrics">
+          <div>
+            <small>{{ t('zf.dash.m1') }}</small>
+            <strong>{{ t('zf.dash.m1v') }}</strong>
+          </div>
+          <div>
+            <small>{{ t('zf.dash.m2') }}</small>
+            <strong>{{ t('zf.dash.m2v') }}</strong>
+          </div>
+          <div>
+            <small>{{ t('zf.dash.m3') }}</small>
+            <strong>{{ t('zf.dash.m3v') }}</strong>
+          </div>
+        </div>
+        <div class="chart" [attr.aria-label]="t('zf.dash.chart')">
+          <div class="chart-label">{{ t('zf.dash.chartLabel') }}</div>
+          <div class="bars" aria-hidden="true">
+            <i style="--h:34%"></i><i style="--h:48%"></i><i style="--h:43%"></i><i style="--h:67%"></i>
+            <i style="--h:58%"></i><i style="--h:82%"></i><i style="--h:76%"></i><i style="--h:94%"></i>
+          </div>
+        </div>
+      </div>
+      <div class="olive-orbit orbit-one" aria-hidden="true"></div>
+      <div class="olive-orbit orbit-two" aria-hidden="true"></div>
+    </div>
+
+    <a class="scroll-cue" href="#fonctionnement"><span>{{ t('zf.hero.scroll') }}</span><i aria-hidden="true">↓</i></a>
+  </section>
+
+  <section class="statement section">
+    <p class="eyebrow olive">{{ t('zf.statement.eyebrow') }}</p>
+    <h2>{{ t('zf.statement.title') }}</h2>
+    <p>{{ t('zf.statement.body') }}</p>
+  </section>
+
+  <section class="workflow section" id="fonctionnement">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow olive">{{ t('zf.flow.eyebrow') }}</p>
+        <h2>{{ t('zf.flow.title') }}</h2>
+      </div>
+      <p>{{ t('zf.flow.lead') }}</p>
+    </div>
+    <ol class="flow">
+      <li><span>01</span><strong>{{ t('zf.flow.1') }}</strong><small>{{ t('zf.flow.1s') }}</small></li>
+      <li><span>02</span><strong>{{ t('zf.flow.2') }}</strong><small>{{ t('zf.flow.2s') }}</small></li>
+      <li><span>03</span><strong>{{ t('zf.flow.3') }}</strong><small>{{ t('zf.flow.3s') }}</small></li>
+      <li><span>04</span><strong>{{ t('zf.flow.4') }}</strong><small>{{ t('zf.flow.4s') }}</small></li>
+      <li><span>05</span><strong>{{ t('zf.flow.5') }}</strong><small>{{ t('zf.flow.5s') }}</small></li>
+      <li><span>06</span><strong>{{ t('zf.flow.6') }}</strong><small>{{ t('zf.flow.6s') }}</small></li>
+      <li><span>07</span><strong>{{ t('zf.flow.7') }}</strong><small>{{ t('zf.flow.7s') }}</small></li>
+    </ol>
+  </section>
+
+  <section class="modules section" id="modules">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow olive">{{ t('zf.modules.eyebrow') }}</p>
+        <h2>{{ t('zf.modules.title') }}</h2>
+      </div>
+      <p>{{ t('zf.modules.lead') }}</p>
+    </div>
+    <div class="module-layout">
+      <div class="module-tabs" role="tablist" [attr.aria-label]="t('zf.modules.tabs')">
+        @for (module of modules; track module.key; let index = $index) {
+          <button
+            role="tab"
+            [id]="'tab-' + module.key"
+            [attr.aria-selected]="selectedKey() === module.key"
+            aria-controls="module-panel"
+            (click)="selectModule(module.key)"
+            (keydown)="moveTab($event, index)">
+            <span>{{ module.number }}</span>{{ moduleLabel(module.key) }}
+          </button>
+        }
+      </div>
+      <article
+        class="module-panel"
+        id="module-panel"
+        role="tabpanel"
+        [attr.aria-labelledby]="'tab-' + selectedModule().key"
+        tabindex="0">
+        <p class="module-number">{{ t('zf.modules.module') }} {{ selectedModule().number }}</p>
+        <h3>{{ moduleTitle(selectedModule().key) }}</h3>
+        <p class="module-intro">{{ moduleSummary(selectedModule().key) }}</p>
+        <ul>
+          @for (feature of moduleFeatures(selectedModule().key); track feature) {
+            <li>{{ feature }}</li>
+          }
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="capabilities section" id="capacites">
+    <div class="section-heading light">
+      <div>
+        <p class="eyebrow gold">{{ t('zf.cap.eyebrow') }}</p>
+        <h2>{{ t('zf.cap.title') }}</h2>
+      </div>
+      <p>{{ t('zf.cap.lead') }}</p>
+    </div>
+    <div class="capability-grid">
+      <article>
+        <span>{{ t('zf.cap.1.label') }}</span>
+        <h3>{{ t('zf.cap.1.title') }}</h3>
+        <p>{{ t('zf.cap.1.body') }}</p>
+      </article>
+      <article>
+        <span>{{ t('zf.cap.2.label') }}</span>
+        <h3>{{ t('zf.cap.2.title') }}</h3>
+        <p>{{ t('zf.cap.2.body') }}</p>
+      </article>
+      <article>
+        <span>{{ t('zf.cap.3.label') }}</span>
+        <h3>{{ t('zf.cap.3.title') }}</h3>
+        <p>{{ t('zf.cap.3.body') }}</p>
+      </article>
+      <article>
+        <span>{{ t('zf.cap.4.label') }}</span>
+        <h3>{{ t('zf.cap.4.title') }}</h3>
+        <p>{{ t('zf.cap.4.body') }}</p>
+      </article>
+      <article>
+        <span>{{ t('zf.cap.5.label') }}</span>
+        <h3>{{ t('zf.cap.5.title') }}</h3>
+        <p>{{ t('zf.cap.5.body') }}</p>
+      </article>
+      <article>
+        <span>{{ t('zf.cap.6.label') }}</span>
+        <h3>{{ t('zf.cap.6.title') }}</h3>
+        <p>{{ t('zf.cap.6.body') }}</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="teams section" id="equipes">
+    <div class="teams-copy">
+      <p class="eyebrow olive">{{ t('zf.teams.eyebrow') }}</p>
+      <h2>{{ t('zf.teams.title') }}</h2>
+      <p>{{ t('zf.teams.body') }}</p>
+    </div>
+    <div class="role-list">
+      <article>
+        <strong>{{ t('zf.teams.1.title') }}</strong>
+        <p>{{ t('zf.teams.1.body') }}</p>
+      </article>
+      <article>
+        <strong>{{ t('zf.teams.2.title') }}</strong>
+        <p>{{ t('zf.teams.2.body') }}</p>
+      </article>
+      <article>
+        <strong>{{ t('zf.teams.3.title') }}</strong>
+        <p>{{ t('zf.teams.3.body') }}</p>
+      </article>
+      <article>
+        <strong>{{ t('zf.teams.4.title') }}</strong>
+        <p>{{ t('zf.teams.4.body') }}</p>
+      </article>
+      <article>
+        <strong>{{ t('zf.teams.5.title') }}</strong>
+        <p>{{ t('zf.teams.5.body') }}</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="platform-strip" [attr.aria-label]="t('zf.strip.label')">
+    <div><strong>{{ t('zf.strip.1') }}</strong><span>{{ t('zf.strip.1s') }}</span></div>
+    <div><strong>{{ t('zf.strip.2') }}</strong><span>{{ t('zf.strip.2s') }}</span></div>
+    <div><strong>{{ t('zf.strip.3') }}</strong><span>{{ t('zf.strip.3s') }}</span></div>
+    <div><strong>{{ t('zf.strip.4') }}</strong><span>{{ t('zf.strip.4s') }}</span></div>
+    <div><strong>{{ t('zf.strip.5') }}</strong><span>{{ t('zf.strip.5s') }}</span></div>
+  </section>
+
+  <section class="final-cta section">
+    <div>
+      <p class="eyebrow gold">{{ t('zf.cta.eyebrow') }}</p>
+      <h2>{{ t('zf.cta.title') }}</h2>
+    </div>
+    <div class="final-actions">
+      <a class="button button-gold" [href]="demoMailto()">{{ t('zf.cta.demo') }}</a>
+      <a class="text-link" href="https://zitflow.x-dev.pro/">
+        {{ t('zf.cta.open') }} <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-brand">
+    <img src="assets/zitflow-wordmark-transparent.png" alt="ZitFlow" width="875" height="265">
+    <p>{{ t('zf.footer.tagline') }}</p>
+  </div>
+  <div class="footer-links">
+    <a routerLink="/">{{ t('zf.footer.studio') }}</a>
+    <a href="mailto:contact@x-dev.pro">{{ t('footer.contact') }}</a>
+    <a href="https://zitflow.x-dev.pro/">{{ t('zf.footer.app') }}</a>
+  </div>
+  <p class="copyright">{{ footerCopy() }}</p>
+</footer>

@@ -2,7 +2,7 @@
 
 Public site for **[www.x-dev.pro](https://www.x-dev.pro)** (GitHub Pages).
 
-Introduces **x-dev** as a small software team and showcases products. First product: **ZitFlow** at [zitflow.x-dev.pro](https://zitflow.x-dev.pro).
+Introduces **x-dev** as a small software team and showcases products. First product: **ZitFlow** — product page at [`/zitflow`](https://www.x-dev.pro/zitflow), live app at [zitflow.x-dev.pro](https://zitflow.x-dev.pro).
 
 ## Languages
 

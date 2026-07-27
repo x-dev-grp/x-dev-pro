@@ -8,15 +8,23 @@ import { LANG_META, type Dict, type Lang } from './types';
 const STORAGE_KEY = 'xdev.lang';
 const DICTS: Record<Lang, Dict> = { fr, en, ar };
 
+export type PageContext = 'studio' | 'zitflow';
+
 @Injectable({ providedIn: 'root' })
 export class I18nService {
   private readonly platformId = inject(PLATFORM_ID);
   private readonly browser = isPlatformBrowser(this.platformId);
 
   readonly lang = signal<Lang>('fr');
+  readonly page = signal<PageContext>('studio');
 
   constructor() {
     this.lang.set(this.resolveInitialLang());
+    this.applyDocument();
+  }
+
+  setPage(next: PageContext): void {
+    this.page.set(next);
     this.applyDocument();
   }
 
@@ -73,13 +81,19 @@ export class I18nService {
     root.lang = meta.htmlLang;
     root.dir = meta.dir;
 
-    document.title = this.t('meta.title');
-    this.setMeta('description', this.t('meta.description'));
-    this.setMeta('og:title', this.t('meta.title'), 'property');
-    this.setMeta('og:description', this.t('meta.description'), 'property');
-    this.setMeta('og:locale', meta.htmlLang === 'ar-TN' ? 'ar_TN' : meta.htmlLang === 'en' ? 'en_US' : 'fr_FR', 'property');
-    this.setMeta('twitter:title', this.t('meta.title'));
-    this.setMeta('twitter:description', this.t('meta.description'));
+    const titleKey = this.page() === 'zitflow' ? 'zf.meta.title' : 'meta.title';
+    const descKey = this.page() === 'zitflow' ? 'zf.meta.description' : 'meta.description';
+    document.title = this.t(titleKey);
+    this.setMeta('description', this.t(descKey));
+    this.setMeta('og:title', this.t(titleKey), 'property');
+    this.setMeta('og:description', this.t(descKey), 'property');
+    this.setMeta(
+      'og:locale',
+      meta.htmlLang === 'ar-TN' ? 'ar_TN' : meta.htmlLang === 'en' ? 'en_US' : 'fr_FR',
+      'property'
+    );
+    this.setMeta('twitter:title', this.t(titleKey));
+    this.setMeta('twitter:description', this.t(descKey));
   }
 
   private setMeta(name: string, content: string, attr: 'name' | 'property' = 'name'): void {

@@ -1,4 +1,5 @@
 import type { Dict } from './types';
+import { zitflowFr } from './zitflow.fr';
 
 export const fr: Dict = {
   'meta.title': 'x-dev — Équipe de développement & produits métiers',
@@ -44,8 +45,8 @@ export const fr: Dict = {
   'about.cap.1.title': 'Applications web',
   'about.cap.1.body': 'Interfaces claires pour le bureau et le terrain.',
   'about.cap.2.title': 'Plateformes multi-sociétés',
-  'about.cap.3.title': 'Métiers industriels & agro',
   'about.cap.2.body': 'Isolation des données, rôles et permissions dès la conception.',
+  'about.cap.3.title': 'Métiers industriels & agro',
   'about.cap.3.body': 'Proches des opérations réelles, pas seulement du marketing.',
   'about.cap.4.title': 'Produit & itération',
   'about.cap.4.body': 'On livre, on observe, on améliore avec les utilisateurs.',
@@ -63,6 +64,7 @@ export const fr: Dict = {
   'products.zitflow.chip.3': 'Finance',
   'products.zitflow.chip.4': 'RH & paie',
   'products.zitflow.chip.5': 'Traçabilité',
+  'products.zitflow.learn': 'Découvrir ZitFlow',
   'products.zitflow.open': 'Ouvrir l’application',
   'products.zitflow.demo': 'Demander une démo',
   'products.soon.eyebrow': 'Produit 02',
@@ -87,5 +89,8 @@ export const fr: Dict = {
   'footer.tagline': 'Studio logiciel · produits métiers',
   'footer.contact': 'Contact',
   'footer.app': 'ZitFlow',
-  'footer.copy': '© {{year}} x-dev'
+  'footer.app.live': 'Application',
+  'footer.copy': '© {{year}} x-dev',
+
+  ...zitflowFr
 };

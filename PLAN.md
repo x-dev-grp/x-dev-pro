@@ -29,13 +29,10 @@ zitflow.x-dev.pro  → Render (ZitFlow application)
 
 ## Page structure
 
-1. Header — x-dev + lang switcher  
-2. Hero — studio intro  
-3. About — team  
-4. Products — ZitFlow featured + “coming soon”  
-5. Approach — three principles  
-6. Contact — mailto  
-7. Footer — x-dev + ZitFlow app link only  
+1. `/` — Header x-dev + lang switcher · Hero · About · Products · Approach · Contact · Footer  
+2. `/zitflow` — Dedicated ZitFlow product page (workflow, modules, capabilities, teams)  
+
+Product deep-dive lives on `/zitflow`. Home keeps a short ZitFlow card with link to that page and the live app.  
 
 ## DNS (OVH)
 

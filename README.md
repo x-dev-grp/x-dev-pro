@@ -1,14 +1,18 @@
-# x-dev.pro — ZitFlow marketing facade
+# x-dev.pro — studio facade
 
 Public site for **[www.x-dev.pro](https://www.x-dev.pro)** (GitHub Pages).
 
-The product app lives at **[zitflow.x-dev.pro](https://zitflow.x-dev.pro)** (Render) — not in this repo.
+Introduces **x-dev** as a small software team and showcases products. First product: **ZitFlow** at [zitflow.x-dev.pro](https://zitflow.x-dev.pro).
+
+## Languages
+
+French (default), English, Tunisian Arabic (RTL). Switcher in the header; preference stored in `localStorage` and `?lang=`.
 
 ## Stack
 
 - Angular 21 standalone application
-- Static prerendered production build for crawlable page content
-- GitHub Actions deployment to GitHub Pages
+- Static prerendered production build
+- GitHub Actions → GitHub Pages
 - Custom domain: `www.x-dev.pro`
 
 ## Development
@@ -18,7 +22,7 @@ npm ci
 npm start
 ```
 
-Production validation:
+Production build:
 
 ```sh
 npm run build
@@ -26,6 +30,8 @@ npm run build
 
 ## Deployment
 
-Pushes to **`github-pages`** trigger [the Pages workflow](./.github/workflows/deploy-pages.yml). The workflow prerenders Angular, uploads `dist/x-dev-pro/browser`, and deploys it to GitHub Pages.
+Pushes to **`github-pages`** trigger the Pages workflow. Artifact path: `dist/x-dev-pro/browser`.
 
-Full product and domain plan: [`PLAN.md`](./PLAN.md).
+See [`PLAN.md`](./PLAN.md).
+
+**Public site policy:** do not expose GitHub / repository links in the UI, meta, or structured data.
